@@ -84,7 +84,15 @@ class LinkedList
 
   def pop
     #can't use tail because I need next to last as well as last
+    if self.empty?
+      return "Cannot pop from empty list"
+    end
     penultimate = @headNode
+    if penultimate.nextNode == nil
+      returnval = @headNode.data
+      @headNode.data = nil
+      return returnval
+    end
     ultimate = penultimate.nextNode
     until ultimate.nextNode.nil?
       penultimate = ultimate
